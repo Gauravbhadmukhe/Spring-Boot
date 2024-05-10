@@ -1,0 +1,178 @@
+Spring-Boot 
+
+ @Controller
+public class HelloController
+{
+@RequestMapping (/"Hello")
+@ResponseBody
+public String show()
+{
+	return"<h1>HELLO This is my project of spring boot App"</h1>;
+}
+}
+
+========================================================
+
+It is the form of meta data that provides data about the program in other words annotation are used to provide supplemental information about the programming.
+
+Core spring Framework annotation
+
+1. @Required :- It applies to bean setter method. It indicates that the annoted bean must be initialized at configuration time with the required property else it throws an exception BeanInintializationException
+
+2. @AutoWired :- Spring provides annotation based auto wired by providing @Autowired annotation . Then the spring contains auto wires (Autoconfigured) the bean by matchinh data type
+
+3. @ComponentsScan :- Its is used by the source of bean definition
+
+4. @ComponentsScan :- It is used when we want to scan the package for beans
+
+5. @Bean :- It is a method level annotation . It tells the method to produce the bean components
+
+6. @Components :-  It is a class level annotation it is used to mark a java class as a bean
+
+7. @Controller :- It is class level annotation. It marks a class as a web request handler . It is mostly likely used with @RequestMappingAnnotation
+
+8. @Service-It is also used at class level. It tells the spring that class contains the business logic
+
+9. @Repository-It is a class level annotation. The repository is Data Access Object (DAO) that access the database and perform all operation related te database.
+
+10. @EnableAutoConfiguration - it autoconfigures the bean that is present in the classpath.
+
+11. @SpringBootApplication - It is a combination of 3 annotations-  @Enable AutoConfiguration,@ComponentScan and @Configuration
+
+================================================================================================================
+
+@RestController
+public class Mycontroller
+{
+@RequestMapping ("/citylist")
+public List<String> show()
+{
+ List<String>List=new ArrayList<String>();
+ list.add("Pune");
+ list.add("Satara");
+ list.add("Mumbai");
+ list.add("Wai");
+return list;
+}
+}
+
+If there is HAS A relationship then we have to initialize the dependent object 
+for eg : employee has a address
+
+Steps:- 
+1. File - new - spring stater project - give project name - next - in available type web and select spring web - finish
+2. Add 2 classes as the controller class in src/ main/ java-in com.example.demo
+ a. Address
+ b. Employee
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Spring boot jdbc :--
+                                 spring boot jdbc provide the classes and libraies for connecting an appplication with jdbc . in spring boot jdbc ,the database related beans such as dataSource ,jdbc templet and namedparameterjdbcTemplate auto configuration and create during the start up. we can autowired classes
+if we want to use it . 
+
+@Auto wired 
+jdbcTemplate  jdbcTemplate :
+
+In application.properties  file just pass the database information like driver  name,url of the database ,user name and password of the database 
+spring Jdbc increase the speed of data access .It also improves the performance of the application .
+
+Q Example:
+                    steps:
+
+1 first  
+
+
+
+
+
+
+
+
+____________________________________________________________________
+
+08/05/2024
+
+
+spring.application .name=spring boot
+
+spring.datasource.driven-class-name=com.mysql.cj •jdbc.Driver
+
+spring-datasource.url=jdbc:mysql://localhost:3306/mydata
+
+spring.datasource.username=root
+
+spring.datasource.password=1234
+
+
+
+import org-springframework.beans.factory.annotation.Autowired;
+
+ @RestController
+public class JdbcController (
+
+@Autowired
+
+JdbcTemplate Jtemp;
+
+@RequestMapping("/insert1")
+public String addRec() 
+{
+Itemp. update("insert into studi values (101, 'Rajan", 'Pune")); 
+return *ch2›Record inserted</h2>;
+}
+
+@RequestMapping("/update1")
+public String updateRec()
+{
+jtemp-update("update studi set name= 'Ram', addr='Nashik' where sroll=101")
+ return -<h2>Record updated</h2>";
+}
+
+
+@Requestmapping ("/Delete1")
+public String delRec()
+{
+ jtemp.update ("delete from stud1 where scroll=101");
+return "<h2>Record deleted<h2>";
+}
+
+
+
+MVC application in SpringBoot
+
+Q2. Jdbe example using idbe Template
+In this application we have to use the JSP page 1o interact with the user. So, to add the JSP pages in the springboot, add the dependencies for isp pages in pom.xml
+
+To create a book store application using springboot jdbc.
+
+Steps
+
+First create table in mysql as
+
+Create table book(bid int primary key,bname varchar(20),bauthor varchar(20),bcategory
+varchar(20),bprice int);
+
+1. File-new-spring starter projecl-give the project name-select spring web-mysal driver-spring data jdbe- finish.
+2. In src/main/resource, in application.properties file, add Data Source properties and yiew properties
+3. In src/main/java, in com.example.demo, add three
+ classes -
+            BookController
+            BookRespo
+            Book
+4. In pom.xmi file,add the following dependencies for isp files to use the jsp files in springboo! applications 
+<dependency>
+ <groupld>org.apache.tomcat.embed</groupld>
+<artifactld> tomcat-embed-jasper</artifactld>
+<version >9.041</version>
+</dependency>
+
+5. In src-main create new folder as webapp
+6. In webapp -right click webapp-select file-add following jsp files.
+a. BookApp.jsp
+b. Fail.jsp
+c. SelectBook.jsp
+d. Success.jsp
+c. UpdateBook.jsp
+
+
+
